@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import React from 'react';
 import { CallPopup } from '../components/CallPopup';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { NewsComponents } from './../components/NewsComponents';
 
 const callPopupList = [
   {
@@ -34,7 +35,7 @@ export default function News() {
   }, []);
 
   const getNews = () => {
-    fetch('')
+    fetch('https://newsapi.org/v2/everything?q=weather&apiKey=d4605a66fb094096a1e1c355607162ff')
       .then(res => res.json())
       .then(output => {
         setNews(output.articles);
@@ -53,19 +54,7 @@ export default function News() {
   return (
     <View style={styles.news}>
         <Text style={styles.titleUpcoming}>News</Text>
-        <FlatList
-          data={news}
-          renderItem={({item, index}) => {
-            return(
-              <TouchableOpacity style={styles.newsCard} onPress={() => Linking.openURL(item.url)}>
-                  <View>
-                  <Text style={[styles.newstitle, {fontFamily:'PublicSans_400Regular'}]}>{item.title}</Text>
-                  <Text style={[styles.newstitle, {marginTop: 5, fontSize: 12}]}>{item.description}</Text>
-                  </View>
-              </TouchableOpacity>
-          )
-          }}
-        />
+        <NewsComponents news={news} />
         <TouchableOpacity style={styles.floatingButton} onPress={onShowPopup}>
           <Ionicons name="call" color="white" size={30} />
         </TouchableOpacity>
@@ -81,6 +70,7 @@ export default function News() {
 
 const styles = StyleSheet.create({
   news: {
+    margin: 15,
     height: '100%',
     marginBottom: 10,
   },

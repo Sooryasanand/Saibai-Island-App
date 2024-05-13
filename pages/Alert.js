@@ -1,7 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import MapView, { Marker } from 'react-native-maps';
+import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
 
 const mapJson = [
   {
@@ -51,6 +52,18 @@ let locationsofDisaster = [
   },
 ]
 
+function secondsToHms(d) {
+  d = Number(d);
+  var h = Math.floor(d / 3600);
+  var m = Math.floor(d % 3600 / 60);
+  var s = Math.floor(d % 3600 % 60);
+
+  var hDisplay = h > 0 ? h + (h == 1 ? " : " : " : ") : "";
+  var mDisplay = m > 0 ? m + (m == 1 ? " : " : " : ") : "";
+  var sDisplay = s > 0 ? s + (s == 1 ? " " : " ") : "";
+  return hDisplay + mDisplay + sDisplay; 
+}
+
 
 export default function Alert() {
 
@@ -72,8 +85,17 @@ export default function Alert() {
     <View style={styles.container}>
       <Feather name="alert-triangle" size={100} style={styles.alertIcon} />
       <Text style={styles.diasterTitle}>Potential Cyclone</Text>
-      <Text style={styles.diasterTitle}>South End</Text>
-      <Text style={styles.diasterTitle}>In 24 Hours!</Text>
+      <Text style={[styles.diasterTitle, styles.diasterLocation]}>South End</Text>
+      <CountdownCircleTimer
+        isPlaying
+        size={150}
+        strokeWidth={6}
+        duration={43200}
+        colors={['#004777', '#FFFF00', '#A30000', '#FF0000']}
+        colorsTime={[86040, 54000, 18000]}
+      >
+        {({ remainingTime }) => <Text style={{fontSize: 22, margin: 20}}>{secondsToHms(remainingTime)}</Text>}
+      </CountdownCircleTimer>
       <MapView 
           showsPointsOfInterest='false' 
           liteMode='true' 
@@ -88,12 +110,6 @@ export default function Alert() {
           }}
       >{showLocationsofDisaster()}</MapView>
       <TouchableOpacity style={styles.infoButton}>
-          <Text style={styles.infoButtonText}>Shelter</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.infoButton}>
-          <Text style={styles.infoButtonText}>Safeguard Home</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.infoButton}>
           <Text style={styles.infoButtonText}>Emergency Services</Text>
       </TouchableOpacity>
     </View>
@@ -103,7 +119,6 @@ export default function Alert() {
 const styles = StyleSheet.create({
   container: {
     margin: 15,
-    height: '100%',
     alignItems: "center"
   },
   alertIcon: {
@@ -111,11 +126,14 @@ const styles = StyleSheet.create({
   },
   diasterTitle: {
     fontSize: 30,
-    padding: 5
+    padding: 5,
+  },
+  diasterLocation: {
+    paddingBottom: 20
   },
   map: {
     width: '80%',
-    height: '20%',
+    height: 180,
     zIndex: -1,
     marginTop: 30,
     borderRadius: 20
@@ -125,7 +143,7 @@ const styles = StyleSheet.create({
     padding: 20,
     paddingHorizontal: 60,
     borderRadius: 20,
-    marginTop: 25
+    marginTop: 20,
   },
   infoButtonText: {
     color: 'white'

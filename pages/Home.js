@@ -1,3 +1,4 @@
+import { NewsComponents } from './../components/NewsComponents';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View , TouchableOpacity,  FlatList, Linking, Image} from 'react-native';
@@ -45,7 +46,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get(``)
+      .get(`https://api.openweathermap.org/data/2.5/weather?lat=-9.3777632400037&lon=142.62304074995214&units=metric&appid=9121854903ef0ac7c37f0f383414ef78`)
       .then((response) => {
         const json = response.data;
         console.log('json', json);
@@ -61,7 +62,7 @@ export default function Home() {
   }, []);
 
   const getNews = () => {
-    fetch('')
+    fetch('https://newsapi.org/v2/top-headlines?q=island&apiKey=d4605a66fb094096a1e1c355607162ff')
       .then(res => res.json())
       .then(output => {
         setNews(output.articles);
@@ -94,22 +95,8 @@ export default function Home() {
         <Text style={styles.disasterInfo}>24th June : Cyclone</Text>
         <Text style={styles.disasterInfo}>11th August : Tsunami</Text>
       </View>
-      <View style={styles.news}>
-        <Text style={styles.NewsMainTitle}>News</Text>
-          <FlatList
-            data={news}
-            renderItem={({item, index}) => {
-              return(
-                <TouchableOpacity style={styles.newsCard} onPress={() => Linking.openURL(item.url)}>
-                    <View>
-                    <Text style={[styles.newsTitle, {fontFamily:'PublicSans_400Regular'}]}>{item.title}</Text>
-                    <Text style={[styles.newsTitle, {marginTop: 5, fontSize: 12}]}>{item.description}</Text>
-                    </View>
-                </TouchableOpacity>
-            )
-            }}
-          />
-      </View>
+      <Text style={styles.NewsMainTitle}>News</Text>
+      <NewsComponents news={news} />
       <TouchableOpacity style={styles.floatingButton} onPress={onShowPopup}>
         <Ionicons name="call" color="white" size={30} />
       </TouchableOpacity>
@@ -157,30 +144,11 @@ const styles = StyleSheet.create({
     marginTop: 30,
     fontFamily: 'PublicSans_300Light'
   },
-  news: {
-    marginBottom: 70
-  },
-  newsCard: {
-    borderColor: 'black',
-    borderWidth: 1,
-    width: '98%',
-    height: '100vws',
-    alignSelf: 'center',
-    marginTop: 20,
-    flexShrink: 1,
-    borderRadius: 10,
-    alignSelf: 'center',
-    padding: 10,
-  },
   NewsMainTitle: {
     fontFamily: 'PublicSans_500Medium',
     fontSize: 30,
     marginTop: 40,
     marginBottom: 10
-  },
-  newsTitle: {
-    fontFamily: 'PublicSans_300Light',
-    marginLeft: 10,
   },
   floatingButton: {
     position: 'absolute',

@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 
 // Icons
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -67,7 +66,7 @@ export default function App() {
               ),
             }}
           />
-          {/*
+          {/** */}
           <Tab.Screen name="Alert" component={Alert} 
             options={{
               tabBarShowLabel: false,
@@ -76,7 +75,7 @@ export default function App() {
               ),
             }}
           />
-          */}
+          
         </Tab.Navigator>
       </NavigationContainer>
     </>
