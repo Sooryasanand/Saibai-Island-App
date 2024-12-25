@@ -6,6 +6,13 @@ The Saibai Safety app is designed to address the inefficiencies in Saibai Island
 
 ---
 
+## How to Run It?  
+The APK for **GoNSW** is available in the **Releases** section of its GitHub repository. Download and install the APK on your Android device to get started.  
+
+> **Note**: The app requires an active internet connection to fetch real-time train data via the NSW Transport API.  
+
+---
+
 ### Features
 
 - **Real-time Alerts**: Provides immediate notifications for incoming natural disasters.
@@ -13,29 +20,6 @@ The Saibai Safety app is designed to address the inefficiencies in Saibai Island
 - **Multi-language Support**: Includes translations in local languages to ensure accessibility for all residents.
 - **Critical Information**: Offers preparation tips and instructions to reinforce structures and create barriers.
 - **Automatic Updates**: Fetches data from existing monitoring stations to keep information current.
-
----
-
-### Installation
-
-1. Clone the repository:
-    ```sh
-    git clone https://github.com/yourusername/saibai-safety-app.git
-    ```
-2. Navigate to the project directory:
-    ```sh
-    cd saibai-safety-app
-    ```
-3. Install the necessary dependencies:
-    ```sh
-    npm install
-    ```
-4. Run the app:
-    ```sh
-    npx expo start
-   ```
-    
----
 
 ### Usage
 
