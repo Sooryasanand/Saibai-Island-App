@@ -1,21 +1,10 @@
 # Saibapp: Saibai Saftey App
 
-## Enhancing Disaster Preparedness Through Timely Alerts
-
 ### Project Overview
 
 The Saibai Safety app is designed to address the inefficiencies in Saibai Island's existing early warning system for natural disasters such as storms and fires. By providing timely alerts and crucial information directly to residents' smartphones, the app aims to improve disaster preparedness and reduce the risks associated with these events.
 
-### Table of Contents
-
-- [Project Overview](#project-overview)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [Team](#team)
-- [Acknowledgements](#acknowledgements)
-- [License](#license)
+---
 
 ### Features
 
@@ -24,6 +13,8 @@ The Saibai Safety app is designed to address the inefficiencies in Saibai Island
 - **Multi-language Support**: Includes translations in local languages to ensure accessibility for all residents.
 - **Critical Information**: Offers preparation tips and instructions to reinforce structures and create barriers.
 - **Automatic Updates**: Fetches data from existing monitoring stations to keep information current.
+
+---
 
 ### Installation
 
@@ -42,7 +33,9 @@ The Saibai Safety app is designed to address the inefficiencies in Saibai Island
 4. Run the app:
     ```sh
     npx expo start
-    ```
+   ```
+    
+---
 
 ### Usage
 
@@ -50,6 +43,8 @@ The Saibai Safety app is designed to address the inefficiencies in Saibai Island
 - **Set Preferences**: Choose your preferred language and types of alerts you want to receive.
 - **Receive Alerts**: Get notified about natural disasters and follow the instructions provided to ensure your safety.
 - **Access Offline Features**: Use the evacuation routes and other critical information even without an internet connection.
+
+---
 
 ### Contributing
 
@@ -70,6 +65,8 @@ We welcome contributions from the community to improve the Saibai Safety app. To
     ```
 5. Open a pull request on GitHub.
 
+---
+
 ### Team
 
 - **Soorya Narayanan Sanand**: Template creation, project scope, design solution matrix, prototyping, detailed design.
@@ -77,9 +74,13 @@ We welcome contributions from the community to improve the Saibai Safety app. To
 - **Phoebe Lee**: Alternative design solutions, background, decision matrix, design criteria, detailed design, prototype editing, proposed design solution justification, discussion.
 - **Jesse Lipschitz**: Introduction, background, conclusion, implementation plan, detailed design, cost analysis.
 
+---
+
 ### Acknowledgements
 
 We acknowledge the traditional custodians of Saibai Island, the Koeybuway and Moegibuway peoples, and pay respect to their elders past, present, and emerging.
+
+---
 
 ### License
 
