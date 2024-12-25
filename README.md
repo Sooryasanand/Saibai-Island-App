@@ -7,9 +7,9 @@ The Saibai Safety app is designed to address the inefficiencies in Saibai Island
 ---
 
 ## How to Run It?  
-The APK for **GoNSW** is available in the **Releases** section of its GitHub repository. Download and install the APK on your Android device to get started.  
+The APK for **Saibai Island** is available in the **Releases** section of its GitHub repository. Download and install the APK on your Android device to get started.  
 
-> **Note**: The app requires an active internet connection to fetch real-time train data via the NSW Transport API.  
+> **Note**: The app requires an active internet connection to get real time news and information.  
 
 ---
 
